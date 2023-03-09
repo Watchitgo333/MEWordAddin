@@ -1,10 +1,10 @@
-﻿using Microsoft.Office.Tools.Ribbon;
+﻿using Microsoft.Office.Interop.Word;
+using Microsoft.Office.Tools.Ribbon;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using Word = Microsoft.Office.Interop.Word;
 
 namespace Delete_Sections_AddIn
 {
@@ -17,7 +17,8 @@ namespace Delete_Sections_AddIn
 
         private void button1_Click(object sender, RibbonControlEventArgs e)
         {
-            Word.Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+            Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+            Application app = Globals.ThisAddIn.Application;
             DeleteSectionWindow deleteSectionWindow = new DeleteSectionWindow();
             deleteSectionWindow.ShowDialog();
         }
